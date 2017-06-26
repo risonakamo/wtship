@@ -1,10 +1,25 @@
 window.onload=main;
 
+var ships=new _facedata;
+var cropbox;
+
 function main()
 {
-    var cropbox=new _cropbox(.4);
-    var facedata=new _facedata;
+    cropbox=new _cropbox(.5);
 
-    facedata.getRandom();
-    cropbox.loadImg("test3.png");
+    randomImage();
+}
+
+function randomImage()
+{
+    var r=ships.getRandom();
+
+    if (r<0)
+    {
+        setTimeout(()=>{randomImage()},100);
+        return;
+    }
+
+    console.log(r);
+    cropbox.loadImg(`ships/${r[1]}`);
 }
