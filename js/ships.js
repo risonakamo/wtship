@@ -12,7 +12,7 @@ class _facedata
     getdata()
     {
         var xhr=new XMLHttpRequest();
-        xhr.open("GET","ships.json");
+        xhr.open("GET","../data/ships.json");
         xhr.responseType="json";
 
         xhr.onreadystatechange=()=>{

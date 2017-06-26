@@ -21,5 +21,5 @@ function randomImage()
     }
 
     console.log(r);
-    cropbox.loadImg(`ships/${r[1]}`);
+    cropbox.loadImg(`../ships/${r[1]}`);
 }
