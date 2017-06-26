@@ -4,29 +4,35 @@ function main()
 {
     var img=document.querySelector(".port-img");
     var portbox=document.querySelector(".port");
+    var srcImg=document.querySelector(".src-img");
 
-    img.src="test1.png";
-    var mult=.5;
+    srcImg.src="test1.png";
+    var mult=.4;
+    var portboxRealWidth=portbox.clientWidth;
+    img.width=portboxRealWidth;
+    img.height=portboxRealWidth;
 
-    img.onload=()=>{
-        var imgMinDim;
+    srcImg.onload=()=>{
+        var subBoxWidth;
 
         if (img.width<img.height)
         {
-            imgMinDim=img.width;
+            subBoxWidth=img.width*mult;
         }
 
         else
         {
-            imgMinDim=img.height;
+            subBoxWidth=img.height*mult;
         }
 
-        var boxwidth=Math.ceil(imgMinDim*mult);
-        var scale=200/boxwidth;
+        var c=img.getContext("2d");
+        var scale=portboxRealWidth/subBoxWidth;
 
-        var tx=-Math.floor(Math.random()*(img.width-boxwidth+1));
-        var ty=-Math.floor(Math.random()*(img.height-boxwidth+1));
+        var sx=Math.floor(Math.random()*(srcImg.width-subBoxWidth+1));
+        var sy=Math.floor(Math.random()*(srcImg.height-subBoxWidth+1));
 
-        img.style.transform=`translate(${tx}px,${ty}px) scale(${scale})`;
+        c.drawImage(srcImg,sx,sy,subBoxWidth,subBoxWidth,0,0,portboxRealWidth,portboxRealWidth);
+
+        srcImg.removeAttribute("src");
     };
 }
