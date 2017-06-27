@@ -15,7 +15,7 @@ class _facedata
     getdata()
     {
         var xhr=new XMLHttpRequest();
-        xhr.open("GET","../data/ships.json");
+        xhr.open("GET","data/ships.json");
         xhr.responseType="json";
 
         xhr.onreadystatechange=()=>{
@@ -42,7 +42,7 @@ class _facedata
     getWin()
     {
         var xhr=new XMLHttpRequest();
-        xhr.open("GET","../poise/poise.json");
+        xhr.open("GET","poise/poise.json");
         xhr.responseType="json";
 
         xhr.onreadystatechange=()=>{
