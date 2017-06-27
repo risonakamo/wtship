@@ -9,17 +9,28 @@
 
     <script src="js/ships.js"></script>
     <script src="js/cropbox.js"></script>
+    <script src="js/answerhandler.js"></script>
     <script src="js/main.js"></script>
 
   </head>
 
   <body>
 
-    <div class="port">
-      <canvas class="port-img"></canvas>
-    </div>
-
     <img class="src-img">
+
+    <div class="wrap">
+      <div class="port-wrap">
+        <div class="port">
+          <canvas class="port-img"></canvas>
+        </div>
+      </div>
+
+
+      <div class="input-area">
+        <input class="entry ibox" type="text" placeholder="だれですか？" autofocus>
+        <div class="correct-entries"></div>
+      </div>
+    </div>
 
   </body>
 

@@ -6,6 +6,7 @@ var cropbox;
 function main()
 {
     cropbox=new _cropbox(.5);
+    question=new _answermodule;
 
     randomImage();
 }
@@ -22,4 +23,5 @@ function randomImage()
 
     console.log(r);
     cropbox.loadImg(`../ships/${r[1]}`);
+    question.answer=r[0];
 }

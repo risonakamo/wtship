@@ -10,6 +10,7 @@ class _cropbox
         this.portboxRealWidth=this.portbox.clientWidth;
         this.img.width=this.portboxRealWidth;
         this.img.height=this.portboxRealWidth;
+        this.c=this.img.getContext("2d");
 
         this.srcImg.onload=()=>{this.loadCanvas()};
     }
@@ -17,6 +18,8 @@ class _cropbox
     loadCanvas()
     {
         var subBoxWidth;
+
+        this.c.clearRect(0,0,this.portboxRealWidth,this.portboxRealWidth);
 
         if (this.srcImg.width<this.srcImg.height)
         {
@@ -28,13 +31,13 @@ class _cropbox
             subBoxWidth=this.srcImg.height*this.mult;
         }
 
-        var c=this.img.getContext("2d");
+
         var scale=this.portboxRealWidth/subBoxWidth;
 
         var sx=Math.floor(Math.random()*(this.srcImg.width-subBoxWidth+1));
         var sy=Math.floor(Math.random()*(this.srcImg.height-subBoxWidth+1));
 
-        c.drawImage(this.srcImg,sx,sy,subBoxWidth,subBoxWidth,0,0,this.portboxRealWidth,this.portboxRealWidth);
+        this.c.drawImage(this.srcImg,sx,sy,subBoxWidth,subBoxWidth,0,0,this.portboxRealWidth,this.portboxRealWidth);
 
         this.srcImg.removeAttribute("src");
     }
