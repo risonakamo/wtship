@@ -18,7 +18,7 @@ def main():
     with open("ships-out.json","w",encoding="utf8") as ofile:
         os.chdir("ships");
         for x in os.scandir():
-            ofile.write('''["{}","{}"],\n'''.format(parseface[int(x.name[:-4])],x.name));
+            ofile.write('''["{}","{}"],\n'''.format(parseface[int(x.name[:-7])],x.name));
 
 
 main();

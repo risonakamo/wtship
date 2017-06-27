@@ -12,6 +12,6 @@ def main():
     for x in os.scandir():
         newname=re.sub("([^0-9])","",x.name);
 
-        os.rename(x.name,newname+".png");
+        os.rename(x.name,newname+"_nd.png");
 
 main();
