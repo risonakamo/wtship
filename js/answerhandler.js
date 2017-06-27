@@ -5,7 +5,10 @@ class _answermodule
     {
         this.entrybox=document.querySelector(".ibox");
         this.correctEntryipoint=document.querySelector(".correct-entries");
+        this.inputArea=document.querySelector(".input-area");
 
+        this.score=0;
+        this.strikes=0;
         this.iboxEvents();
     }
 
@@ -29,8 +32,24 @@ class _answermodule
 
     correct()
     {
+        this.score++;
+        this.strikes=0;
+
+        if (this.score==2)
+        {
+            this.entrybox.parentNode.removeChild(this.entrybox);
+
+            this.correctEntryipoint.insertAdjacentHTML("afterbegin",`
+                <div class="entry correct">${this.entrybox.value}✔</div>
+            `);
+
+            this.animateout();
+
+            return;
+        }
+
         this.correctEntryipoint.insertAdjacentHTML("afterbegin",`
-            <div class="entry correct">${this.entrybox.value}</div>
+            <div class="entry correct">${this.entrybox.value}✔</div>
         `);
 
         this.entrybox.value="";
@@ -41,6 +60,17 @@ class _answermodule
 
     incorrect()
     {
+        this.strikes++;
+    }
 
+    animateout()
+    {
+        var entries=document.querySelectorAll(".correct");
+
+        entries.forEach((x,i)=>{
+            setTimeout(()=>{
+                x.classList.add("completing");
+            },i*100);
+        });
     }
 }
