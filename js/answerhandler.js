@@ -133,9 +133,7 @@ class _answermodule
             },i*100);
         });
 
-
-
-        setTimeout(()=>{this.winpane.classList.add("show");},(entries.length-1)*1100);
+        setTimeout(()=>{this.winpane.classList.add("show")},(entries.length)*150);
     }
 
     loadAnswer(answer)
