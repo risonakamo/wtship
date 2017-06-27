@@ -23,5 +23,5 @@ function randomImage()
 
     console.log(r);
     cropbox.loadImg(`../ships/${r[1]}`);
-    question.answer=r[0];
+    question.loadAnswer(r[0]);
 }

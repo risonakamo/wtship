@@ -1,5 +1,8 @@
 class _cropbox
 {
+    /*
+        string lastsrc: last image link to be loaded
+    */
     constructor(mult)
     {
         this.img=document.querySelector(".port-img");
@@ -42,8 +45,14 @@ class _cropbox
         this.srcImg.removeAttribute("src");
     }
 
+    reloadImg()
+    {
+        this.srcImg.src=this.lastsrc;
+    }
+
     loadImg(img)
     {
         this.srcImg.src=img;
+        this.lastsrc=img;
     }
 }
