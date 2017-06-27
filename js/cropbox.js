@@ -52,7 +52,7 @@ class _cropbox
 
     loadImg(img)
     {
-        this.srcImg.src="./"+img;
+        this.srcImg.src=img;
         this.lastsrc=img;
     }
 }
