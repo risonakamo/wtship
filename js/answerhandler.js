@@ -79,6 +79,14 @@ class _answermodule
                 }
             }
         });
+
+        this.failpane.addEventListener("click",(e)=>{
+            window.location.reload();
+        });
+
+        this.winimg.addEventListener("click",(e)=>{
+            window.location.href=e.currentTarget.src;
+        });
     }
 
     correct()
@@ -86,7 +94,7 @@ class _answermodule
         this.score++;
         this.strikes=0;
 
-        if (this.score==2)
+        if (this.score==8)
         {
             this.win();
             return;
@@ -158,7 +166,6 @@ class _answermodule
         `);
 
         this.winimg.src=ships.getwin();
-
         this.animateout();
     }
 }

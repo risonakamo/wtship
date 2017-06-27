@@ -21,7 +21,6 @@ function randomImage()
         return;
     }
 
-    console.log(r);
     cropbox.loadImg(`../ships/${r[1]}`);
     question.loadAnswer(r[0]);
 }
