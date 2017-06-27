@@ -24,6 +24,14 @@ body
     padding-top: 200px;
 }
 
+.game-wrap
+{
+    position: relative;
+    width: 1000px;
+    height: 500px;
+    overflow: hidden;
+}
+
 .port
 {
     width: 400px;
@@ -55,6 +63,34 @@ body
 .port-message.show
 {
     transform: translateY(-500px);
+}
+
+.win-box
+{
+    position: absolute;
+    width: 1000px;
+    height: 500px;
+    right: -1000px;
+    top: 0;
+    text-align: center;
+    background-color: #ef94ba;
+    transition: transform .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.win-box.show
+{
+    transform: translateX(-1000px);
+}
+
+.win-box img
+{
+    height: 100%;
+}
+
+.win-box.wide img
+{
+    height: auto;
+    width: 100%;
 }
 
 .port-caps

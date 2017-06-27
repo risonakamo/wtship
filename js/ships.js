@@ -1,12 +1,15 @@
 class _facedata
 {
     /*  -- other variables --
-        object ships: ship data*/
+        object ships: ship data
+        array winimg: array of win image links
+    */
     constructor()
     {
         this.dataready=0;
 
         this.getdata();
+        this.getWin();
     }
 
     getdata()
@@ -34,5 +37,26 @@ class _facedata
         }
 
         return this.ships[Math.floor(Math.random()*this.ships.length)];
+    }
+
+    getWin()
+    {
+        var xhr=new XMLHttpRequest();
+        xhr.open("GET","../poise/poise.json");
+        xhr.responseType="json";
+
+        xhr.onreadystatechange=()=>{
+            if (xhr.readyState==4)
+            {
+                this.winimg=xhr.response.images;
+            }
+        };
+
+        xhr.send();
+    }
+
+    getwin()
+    {
+        return this.winimg[Math.floor(Math.random()*this.winimg.length)];
     }
 }

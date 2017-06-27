@@ -9,6 +9,8 @@ class _answermodule
         this.hint=document.querySelector(".hint");
         this.strikeElement=document.querySelector(".strikes");
         this.failpane=document.querySelector(".port-message");
+        this.winpane=document.querySelector(".win-box");
+        this.winimg=document.querySelector(".win-box img");
 
         this.score=0;
         this.strikes=0;
@@ -86,14 +88,7 @@ class _answermodule
 
         if (this.score==2)
         {
-            this.entrybox.parentNode.removeChild(this.entrybox);
-
-            this.correctEntryipoint.insertAdjacentHTML("afterbegin",`
-                <div class="entry correct">${this.entrybox.value}✔</div>
-            `);
-
-            this.animateout();
-
+            this.win();
             return;
         }
 
@@ -129,6 +124,10 @@ class _answermodule
                 x.classList.add("completing");
             },i*100);
         });
+
+
+
+        setTimeout(()=>{this.winpane.classList.add("show");},(entries.length-1)*1100);
     }
 
     loadAnswer(answer)
@@ -148,5 +147,18 @@ class _answermodule
         `);
 
         this.failpane.classList.add("show");
+    }
+
+    win()
+    {
+        this.entrybox.parentNode.removeChild(this.entrybox);
+
+        this.correctEntryipoint.insertAdjacentHTML("afterbegin",`
+            <div class="entry correct">${this.entrybox.value}✔</div>
+        `);
+
+        this.winimg.src=ships.getwin();
+
+        this.animateout();
     }
 }
