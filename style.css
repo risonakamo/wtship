@@ -34,8 +34,25 @@ body
 .port-wrap
 {
     display: inline-block;
-    vertical-align: top;
+    position: relative;
     width: 500px;
+    overflow: hidden;
+    vertical-align: top;
+    transition: opacity .6s;
+}
+
+.port-message
+{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-color: #f6f2f3;
+    transition: transform .8s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.port-message.show
+{
+    transform: translateY(-500px);
 }
 
 .port-caps

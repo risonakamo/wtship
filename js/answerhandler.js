@@ -8,6 +8,7 @@ class _answermodule
         this.inputArea=document.querySelector(".input-area");
         this.hint=document.querySelector(".hint");
         this.strikeElement=document.querySelector(".strikes");
+        this.failpane=document.querySelector(".port-message");
 
         this.score=0;
         this.strikes=0;
@@ -101,7 +102,6 @@ class _answermodule
         `);
 
         this.entrybox.value="";
-        window.scrollTo(0,document.body.scrollHeight);
 
         randomImage();
     }
@@ -109,6 +109,13 @@ class _answermodule
     incorrect()
     {
         this.strikes++;
+
+        if (this.strikes>3)
+        {
+            this.lose();
+            return;
+        }
+
         this.setStrikes();
         cropbox.reloadImg();
     }
@@ -130,5 +137,16 @@ class _answermodule
         this.genHint();
         this.strikes=0;
         this.setStrikes();
+    }
+
+    lose()
+    {
+        this.entrybox.parentNode.removeChild(this.entrybox);
+
+        this.correctEntryipoint.insertAdjacentHTML("afterbegin",`
+            <div class="entry correct">${this.answer}✖</div>
+        `);
+
+        this.failpane.classList.add("show");
     }
 }
