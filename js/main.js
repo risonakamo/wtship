@@ -21,6 +21,6 @@ function randomImage()
         return;
     }
 
-    cropbox.loadImg(`../ships/${r[1]}`);
+    cropbox.loadImg(`./ships/${r[1]}`);
     question.loadAnswer(r[0]);
 }
