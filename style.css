@@ -17,8 +17,10 @@ body
 
 .wrap
 {
+    position: relative;
     width: 1000px;
     margin: auto;
+    padding-bottom: 500px;
     padding-top: 200px;
 }
 
@@ -145,4 +147,11 @@ body
     {
         opacity: 0;
     }
+}
+
+footer
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }
